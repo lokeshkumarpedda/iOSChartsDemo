@@ -1,14 +1,69 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="jwe-7L-IfY">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Line Chart View Controller-->
+        <scene sceneID="XuV-NF-G4b">
+            <objects>
+                <viewController id="jwe-7L-IfY" customClass="LineChartViewController" customModule="ChartsDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="nOv-2O-0HU"/>
+                        <viewControllerLayoutGuide type="bottom" id="HcW-b5-oc2"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="znG-sy-8Ga">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tkV-dS-EKP" customClass="LineChartView" customModule="Charts">
+                                <rect key="frame" x="0.0" y="20" width="375" height="400"/>
+                                <color key="backgroundColor" red="0.17586338520050049" green="0.28876525163650513" blue="0.37617969512939453" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.80000000000000004" translatesAutoresizingMaskIntoConstraints="NO" id="luz-HA-cvc" customClass="GradientProgressBar" customModule="ChartsDemo" customModuleProvider="target">
+                                <rect key="frame" x="50" y="547" width="275" height="20"/>
+                                <color key="backgroundColor" red="0.99607843137254903" green="0.36078431372549019" blue="0.3411764705882353" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="z36-uM-b0T"/>
+                                </constraints>
+                            </progressView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dfm-BC-fbh" customClass="NoInternetView" customModule="ChartsDemo" customModuleProvider="target">
+                                <rect key="frame" x="5" y="425" width="365" height="117"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="tkV-dS-EKP" firstAttribute="top" secondItem="nOv-2O-0HU" secondAttribute="bottom" id="2Z4-Cf-yDT"/>
+                            <constraint firstItem="luz-HA-cvc" firstAttribute="top" secondItem="Dfm-BC-fbh" secondAttribute="bottom" constant="5" id="GSd-gh-gzu"/>
+                            <constraint firstItem="HcW-b5-oc2" firstAttribute="top" secondItem="luz-HA-cvc" secondAttribute="bottom" constant="100" id="ImS-t3-F29"/>
+                            <constraint firstAttribute="trailing" secondItem="luz-HA-cvc" secondAttribute="trailing" constant="50" id="YlU-8t-zHY"/>
+                            <constraint firstItem="Dfm-BC-fbh" firstAttribute="leading" secondItem="znG-sy-8Ga" secondAttribute="leading" constant="5" id="b9z-aE-7Cr"/>
+                            <constraint firstItem="tkV-dS-EKP" firstAttribute="height" secondItem="znG-sy-8Ga" secondAttribute="height" multiplier="0.6" id="hem-I2-t8H"/>
+                            <constraint firstItem="Dfm-BC-fbh" firstAttribute="top" secondItem="tkV-dS-EKP" secondAttribute="bottom" constant="5" id="jQ7-Ct-D8g"/>
+                            <constraint firstItem="luz-HA-cvc" firstAttribute="leading" secondItem="znG-sy-8Ga" secondAttribute="leading" constant="50" id="pUs-AK-SSS"/>
+                            <constraint firstAttribute="trailing" secondItem="Dfm-BC-fbh" secondAttribute="trailing" constant="5" id="qXk-Kl-z2K"/>
+                            <constraint firstAttribute="trailing" secondItem="tkV-dS-EKP" secondAttribute="trailing" id="xXt-9t-t4Q"/>
+                            <constraint firstItem="tkV-dS-EKP" firstAttribute="leading" secondItem="znG-sy-8Ga" secondAttribute="leading" id="xZr-VK-lha"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mLineChartView" destination="tkV-dS-EKP" id="gdP-d6-B4Z"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4sl-3Q-lhN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-695.20000000000005" y="140.77961019490255"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ChartsDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -16,11 +71,27 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AP8-Jh-bZf" customClass="BarChartView" customModule="Charts">
+                                <rect key="frame" x="0.0" y="267" width="375" height="400"/>
+                                <color key="backgroundColor" red="0.9410743117" green="0.94123536350000003" blue="0.94106405969999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="AP8-Jh-bZf" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.6" id="EXa-YG-UVb"/>
+                            <constraint firstItem="AP8-Jh-bZf" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="F8l-Xi-6zy"/>
+                            <constraint firstAttribute="trailing" secondItem="AP8-Jh-bZf" secondAttribute="trailing" id="ThW-8c-9hg"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="AP8-Jh-bZf" secondAttribute="bottom" id="pKA-nX-m7y"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="mBarChartView" destination="AP8-Jh-bZf" id="qQz-1n-NYu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="135.38230884557723"/>
         </scene>
     </scenes>
 </document>
